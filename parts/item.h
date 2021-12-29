@@ -15,6 +15,6 @@ private:
 
 public:
     Item(string name, Category softness);
-    string getName();
-    Category getSoftness();
+    string getName() const;
+    Category getSoftness() const;
 };

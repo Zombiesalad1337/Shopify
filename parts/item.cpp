@@ -6,10 +6,12 @@ Item::Item(string name, Category softness){
     this->softness = softness;
 }
 
-string Item::getName(){
+
+//const correctness
+string Item::getName() const{
     return this->name;
 }
 
-Category Item::getSoftness(){
+Category Item::getSoftness() const{
     return this->softness;
 }
