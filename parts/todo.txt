@@ -1,0 +1,9 @@
+Item class - name, category, add price, dimensions etc later
+(stored in csv, later in sql db, read from it on launch)
+create store map - as a 2D grid?
+parse store map
+read shopping list on launch (stored as csv)
+sort the user list
+find best route
+display output using opengl
+
