@@ -2,6 +2,7 @@
 #include <string>
 //if I include <string> here and again in main.cpp, then is it included twice?
 //won't compile if <string> is excluded here
+//standard libs already contain #pragma once?
 using namespace std;
 
 enum Category {
