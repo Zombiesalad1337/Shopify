@@ -1,18 +1,8 @@
 #include "item.h"
 #include "inventory.h"
+#include "utils.h"
 #include <bits/stdc++.h>
-#include <boost/tokenizer.hpp>
 using namespace std;
-
-vector<string> split(std::string s, const char* sep1, const char* sep2)
-{
-    vector<string> tokens;
-    boost::char_separator<char> sep(sep1, sep2);
-    boost::tokenizer<boost::char_separator<char> > tok(s, sep);
-    for(auto i = tok.begin(); i!=tok.end(); ++i)
-        tokens.emplace_back(*i);
-    return tokens;
-}
 
 
 Inventory::Inventory(string filename){
@@ -27,7 +17,7 @@ Inventory::Inventory(string filename){
     getline(fin, line);
 
     int count = 0;
-    while (fin){
+    while (!fin.eof()){
         getline(fin, line);
         //first line contains headers, read from 2nd line
         if (line.size()){
@@ -36,5 +26,13 @@ Inventory::Inventory(string filename){
             mapItems[tokens[0]] = count;
             count++;
         }
+        fin.peek(); //to prevent reading last line twice
+    }
+}
+
+void Inventory::printInventory(){
+    cout << "Name\tCategory" << endl;
+    for (Item i : items){
+        cout << i.getName() << "  " << i.getSoftness() << endl;
     }
 }

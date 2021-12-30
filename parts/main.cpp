@@ -1,14 +1,9 @@
 #include <bits/stdc++.h>
 #include "item.h"
+#include "inventory.h"
+#include "userlist.h"
 using namespace std;
 
-bool ItemComparator(const Item& item1, const Item& item2){
-    return item1.getSoftness() < item2.getSoftness();
-}
-
-void sortItems(vector<Item>& items){
-    sort(items.begin(), items.end(), ItemComparator);
-}
 
 int main(){
     vector<string> names = {"frooti", "rice", "eggs"};
@@ -19,17 +14,22 @@ int main(){
         items.emplace_back(Item(names[i], cats[i]));
     }
 
-    for (Item i : items){
-        cout << i.getName() << " ";
-        cout << i.getSoftness() << endl; 
-    }
-    sortItems(items);
-    for (Item i : items){
-        cout << i.getName() << " ";
-        cout << i.getSoftness() << endl; 
-    }
- 
-    
+    // for (Item i : items){
+    //     cout << i.getName() << " ";
+    //     cout << i.getSoftness() << endl; 
+    // }
+    // sortItems(items);
+    // for (Item i : items){
+    //     cout << i.getName() << " ";
+    //     cout << i.getSoftness() << endl; 
+    // }
+
+    Inventory inventory("inventory.csv");
+    inventory.printInventory();
+    cout << endl << endl;
+
+    UserList userList("userlist.txt", inventory);
+    userList.printListItems();
     return 0;
 }
 
