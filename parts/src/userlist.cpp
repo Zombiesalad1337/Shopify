@@ -8,7 +8,7 @@ using namespace std;
 
 UserList::UserList(string filename, Inventory& inventory){
     ifstream fin;
-    fin.open(filename);
+    fin.open("../src/" + filename);
     string line;
 
     while (!fin.eof()){

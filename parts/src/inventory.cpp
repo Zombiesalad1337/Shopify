@@ -12,7 +12,7 @@ Inventory::Inventory(string filename){
     catMap["soft"] = Category::soft;
 
     ifstream fin;
-    fin.open(filename);
+    fin.open("../src/" + filename);
     string line;
     getline(fin, line);
 
