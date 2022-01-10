@@ -7,3 +7,46 @@ sort the user list
 find best route
 display output using opengl
 
+10/01/2022
+MAP - 
+class Vertex - vec of 2 floats - x and y
+class Polygon - vector of Vertex, string name
+                -constructor creates Vertex objects
+class Map  - vector of polygons
+            -reads file, then creates Polygon objects
+            - float xMax, yMax - shop's size
+            - float resolution - size of each cell (floor divided
+                                                    into individual cells)
+            - bool Blockage[xMax/resolution][yMax/resolution]
+                - for A*
+                - Blockage[x][y] is true if there's a Polygon at (x,y)
+
+Location of items themselves stored as a polygon.
+
+Pathfinding - 
+    -Use TSP to find a sequence.
+        -Need to use some heuristic for TSP
+        -Search online for good heuristics, if can't find a good one then
+        stick with nearest neighbor heuristic.
+        -Heuristic function needs to know the distance between two nodes,
+        like in nearest neighbor or nearest point insertor
+        use A* as a subroutine to find such distance.
+        Steps-
+            -Start with the entrance, find the sequence for the hardest items.
+                - Problem: Start is fixed
+                    -Solution: A TSP with a fixed starting point and no return to start, can be solved as an ordinary TSP with all the 
+                    in-going arcs to the starting point having a cost of zero. That way the return to the starting point is "for free" 
+                    and the TSP solver only focuses on the remaining part of the tour, giving you an optimal "open TSP".
+            -Use the location of the last picked hardest item and find TSP sequence for the items having one degree lower hardness.
+            -Continue until the least hardest items are picked.
+            -Problem: Now we have a fixed start and end(cashier counter) 
+                Solution:Add an edge from the end node to the start node, with 0 cost. Add edges from every other node to the 
+                start node, with very high cost. Then run the usual TSP (starting and ending at your start node). 
+                This should be equivalent to the problem you are trying to solve.
+
+    -Problem: Our item is a polygon instead of a single-point(node)
+        -Solution: Mark as visited if it's close enough to the perimeter of a polygon?
+
+
+Random map and userlist generator for testing.
+            
