@@ -1,5 +1,7 @@
 *.o
 *.out
 build/
+bin/
+lib/
 run.sh
 clean.sh
