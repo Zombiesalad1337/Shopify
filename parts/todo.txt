@@ -50,3 +50,7 @@ Pathfinding -
 
 Random map and userlist generator for testing.
             
+12/01/2022
+creating branch 'opengl' for parallel development of output graphics
+merge with 'main' when done
+
