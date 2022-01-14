@@ -6,10 +6,15 @@
 //value of components range from -1 to +1
 class Vertex{
 public:
-    Vertex(const glm::vec3& pos);
+    Vertex(const glm::vec3& pos, const glm::vec2& texCoord);
 
 private:
     glm::vec3 pos;
+    //for a triangle, pick a texCoord on the texture file
+    //for each vertex
+    //and opengl will interpolate the texture for the
+    //complete triangle. 
+    glm::vec2 texCoord;
 };
 
 class Mesh{

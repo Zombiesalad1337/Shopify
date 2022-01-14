@@ -1,7 +1,8 @@
 #include "mesh.h"
 
-Vertex::Vertex(const glm::vec3& pos){
+Vertex::Vertex(const glm::vec3& pos, const glm::vec2& texCoord){
     this->pos = pos;
+    this->texCoord = texCoord;
 }
 
 Mesh::Mesh(Vertex* vertices, unsigned int numVertices){
@@ -46,8 +47,13 @@ Mesh::Mesh(Vertex* vertices, unsigned int numVertices){
     //the vertex class may contain attributes like pos and color.
     //the array would look like pos,color,pos,color...
     //we need to skip all the color attributes
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0]), 0);
 
+    //for texture
+    //enables vertex texture attribute
+    glEnableVertexAttribArray(1);
+    //tells how to read the second(texCoord) attribute
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(vertices[0]), (void *)(3 * sizeof(GL_FLOAT)));
 
     //releases the bind/operations dont't affect any vertex array 
     glBindVertexArray(0);

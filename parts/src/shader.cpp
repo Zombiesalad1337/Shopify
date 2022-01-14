@@ -24,7 +24,9 @@ Shader::Shader(const std::string& filename){
         glAttachShader(m_program, m_shaders[i]);
     }
     //Associates a generic vertex attribute index with a named attribute variable
+    //the same names as in vertex shader
     glBindAttribLocation(m_program, 0, "position");
+    glBindAttribLocation(m_program, 1, "texCoord");
 
     glLinkProgram(m_program);
     //Linking can fail, so check for errors
