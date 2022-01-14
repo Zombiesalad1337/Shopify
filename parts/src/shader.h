@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <GL/glew.h>
+#include "transform.h"
 
 //loads the shader file, builds it and sends the built file 
 //to the gpu
@@ -12,15 +13,25 @@ public:
     //provided by this shader class
     void Bind();
 
+    //updates the transform uniform
+    void Update(const Transform& transform);
 
     virtual ~Shader();
 
 private:
     static const unsigned int NUM_SHADERS = 2;
 
+    enum {
+        TRANSFORM_U,
+        
+        NUM_UNIFORMS
+    };
     //handle to keep track of the shader program
     GLuint m_program;
 
     //handles for different shaders
     GLuint m_shaders[NUM_SHADERS];
+
+    //handles for uniform variables
+    GLuint m_uniforms[NUM_UNIFORMS];
 };
