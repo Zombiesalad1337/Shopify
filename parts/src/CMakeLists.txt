@@ -12,6 +12,8 @@ add_library(transform transform.cpp)
 
 include_directories(${OPENGL_INCLUDE_DIRS} ${GLEW_INCLUDE_DIRS} ${SDL2_INCLUDE_DIRS})
 
-target_link_libraries(main display shader mesh texture transform
+target_link_libraries(shader transform)
+
+target_link_libraries(main display shader mesh texture 
                     ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES} 
                     ${SDL2_LIBRARIES})
