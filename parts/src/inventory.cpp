@@ -1,19 +1,19 @@
 #include "item.h"
 #include "inventory.h"
 #include "utils.h"
-#include <bits/stdc++.h>
-using namespace std;
+#include <fstream>
+#include <iostream>
 
 
-Inventory::Inventory(string filename){
-    map<string, Category> catMap;
+Inventory::Inventory(std::string filename){
+    std::map<std::string, Category> catMap;
     catMap["hard"] = Category::hard;
     catMap["medium"] = Category::medium;
     catMap["soft"] = Category::soft;
 
-    ifstream fin;
+    std::ifstream fin;
     fin.open("../src/" + filename);
-    string line;
+    std::string line;
     getline(fin, line);
 
     int count = 0;
@@ -21,7 +21,7 @@ Inventory::Inventory(string filename){
         getline(fin, line);
         //first line contains headers, read from 2nd line
         if (line.size()){
-            vector<string> tokens = split(line, ",", "");
+            std::vector<std::string> tokens = split(line, ",", "");
             items.emplace_back(Item(tokens[0], catMap[tokens[1]]));
             mapItems[tokens[0]] = count;
             count++;
@@ -31,8 +31,8 @@ Inventory::Inventory(string filename){
 }
 
 void Inventory::printInventory(){
-    cout << "Name\tCategory" << endl;
+    std::cout << "Name\tCategory" << std::endl;
     for (Item i : items){
-        cout << i.getName() << "  " << i.getSoftness() << endl;
+        std::cout << i.getName() << "  " << i.getSoftness() << std::endl;
     }
 }

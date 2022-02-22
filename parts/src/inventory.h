@@ -1,18 +1,20 @@
 #pragma once
-#include <bits/stdc++.h>
 #include "item.h"
-using namespace std;
+#include <vector>
+#include <string>
+#include <map>
+
 
 class Inventory{
 private:
-    vector<Item> items;
+    std::vector<Item> items;
     //map<string, int> seems better, since Item& can cause scope related errors?
     // map<string, Item&> mapItems;
-    map<string, int> mapItems;
+    std::map<std::string, int> mapItems;
 
     //include 2D map object
     friend class UserList;
 public:
-    Inventory(string filename);
+    Inventory(std::string filename);
     void printInventory();
 };

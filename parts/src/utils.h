@@ -1,9 +1,9 @@
 #pragma once
-#include <bits/stdc++.h>
 #include "item.h"
+#include <vector>
+#include <string>
 
-using namespace std;
 
-vector<string> split(std::string s, const char* sep1, const char* sep2);
+std::vector<std::string> split(std::string s, const char* sep1, const char* sep2);
 
 bool ItemComparator(const Item* item1, const Item* item2);

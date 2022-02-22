@@ -1,15 +1,16 @@
-#include <bits/stdc++.h>
 #include "inventory.h"
 #include "userlist.h"
 #include "utils.h"
 #include "item.h"
+#include <fstream>
+#include <iostream>
+#include <algorithm>
 
-using namespace std;
 
-UserList::UserList(string filename, Inventory& inventory){
-    ifstream fin;
+UserList::UserList(std::string filename, Inventory& inventory){
+    std::ifstream fin;
     fin.open("../src/" + filename);
-    string line;
+    std::string line;
 
     while (!fin.eof()){
         getline(fin, line);
@@ -24,12 +25,12 @@ UserList::UserList(string filename, Inventory& inventory){
 
 
 void UserList::sortListItems(){
-    sort(listItems.begin(), listItems.end(), ItemComparator);
+    std::sort(listItems.begin(), listItems.end(), ItemComparator);
 }
 
 void UserList::printListItems(){
-    cout << "Name\tCategory" << endl;
+    std::cout << "Name\tCategory" << std::endl;
     for (auto i : listItems){
-        cout << i->getName() << " " << i->getSoftness() << endl;
+        std::cout << i->getName() << " " << i->getSoftness() << std::endl;
     }
 }

@@ -1,14 +1,14 @@
 #include "item.h"
-using namespace std;
 
-Item::Item(string name, Category softness){
+
+Item::Item(std::string name, Category softness){
     this->name = name;
     this->softness = softness;
 }
 
 
 //const correctness
-string Item::getName() const{
+std::string Item::getName() const{
     return this->name;
 }
 
