@@ -1,6 +1,7 @@
 #pragma once
 #include <glm/glm.hpp>
 
+namespace gfx{
 //vertex shader can take a matrix and apply the transformation
 //this class is an interface to specify transformations in an
 //intuitive way which gets converted to matrices later.
@@ -24,3 +25,5 @@ private:
     glm::vec3 m_rot;
     glm::vec3 m_scale;
 };
+
+} //namespace gfx

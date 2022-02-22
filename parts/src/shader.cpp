@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 
+namespace gfx{
 //why static non-member functions? https://stackoverflow.com/questions/8406800/when-should-i-write-the-keyword-static-before-a-non-member-function
 //controls visibility here? 
 static std::string LoadShader(const std::string& filename);
@@ -129,3 +130,5 @@ static void CheckShaderError(GLuint shader, GLuint flag, bool isProgram, const s
         std::cerr << errorMessage << ": " << error << std::endl;
     }
 }
+
+} //namespace gfx

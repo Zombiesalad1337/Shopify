@@ -3,6 +3,8 @@
 #include <SDL2/SDL.h>
 
 
+namespace gfx{
+
 class Display{
 public:
     Display(int width, int height, const std::string& name);
@@ -16,3 +18,5 @@ private:
     SDL_Window* m_window;
     SDL_GLContext m_glContext;
 };
+
+} //namespace gfx

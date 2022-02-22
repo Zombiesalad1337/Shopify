@@ -1,5 +1,7 @@
 #include "mesh.h"
 
+namespace gfx{
+
 Vertex::Vertex(const glm::vec3& pos, const glm::vec2& texCoord){
     this->pos = pos;
     this->texCoord = texCoord;
@@ -78,3 +80,5 @@ void Mesh::Draw(){
 
     glBindVertexArray(0);
 }
+
+} //namespace gfx

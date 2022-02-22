@@ -1,6 +1,7 @@
 #include "transform.h"
 #include <glm/gtx/transform.hpp>
 
+namespace gfx{
 //default scale is 1
 Transform::Transform(const glm::vec3& pos, const glm::vec3& rot, const glm::vec3& scale) :
     m_pos(pos),
@@ -24,3 +25,5 @@ glm::mat4 Transform::GetModel() const {
 
     return posMatrix * rotMatrix * scaleMatrix;
 }
+
+} //namespace gfx

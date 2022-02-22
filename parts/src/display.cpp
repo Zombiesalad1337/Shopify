@@ -2,6 +2,8 @@
 #include <iostream>
 #include <GL/glew.h>
 
+namespace gfx{
+
 Display::Display(int width, int height, const std::string& name){
 
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -73,3 +75,5 @@ void Display::Update(){
         }
     }
 }
+
+} //namespace gfx

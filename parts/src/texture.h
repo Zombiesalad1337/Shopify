@@ -2,6 +2,7 @@
 #include <GL/glew.h>
 #include <string>
 
+namespace gfx{
 //loads texture from the disk
 class Texture{
 public:
@@ -15,3 +16,5 @@ private:
     //handle
     GLuint m_texture;
 };
+
+} //namespace gfx

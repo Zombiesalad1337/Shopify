@@ -7,20 +7,20 @@
 
 int main(){
 	std::string windowName = "tst";
-	Display display(800, 600, windowName);	
+	gfx::Display display(800, 600, windowName);	
 
 	//executable is in bin directory
-	Shader shader("../src/res/shaders/basicShader");
+	gfx::Shader shader("../src/res/shaders/basicShader");
 
-	Vertex vertices[] = { Vertex(glm::vec3(-0.5, -0.5, 0), glm::vec2(-0.5, -0.5)),
-						Vertex(glm::vec3(0, 0.5, 0), glm::vec2(0.0, 0.5)),
-						Vertex(glm::vec3(0.5, -0.5, 0), glm::vec2(0.5, -0.5)) };
+	gfx::Vertex vertices[] = {gfx::Vertex(glm::vec3(-0.5, -0.5, 0), glm::vec2(-0.5, -0.5)),
+						gfx::Vertex(glm::vec3(0, 0.5, 0), glm::vec2(0.0, 0.5)),
+						gfx::Vertex(glm::vec3(0.5, -0.5, 0), glm::vec2(0.5, -0.5)) };
 
-	Mesh mesh(vertices, sizeof(vertices)/sizeof(vertices[0]));
+	gfx::Mesh mesh(vertices, sizeof(vertices)/sizeof(vertices[0]));
 
-	Texture texture("../src/res/textures/wood.jpeg");
+	gfx::Texture texture("../src/res/textures/wood.jpeg");
 
-	Transform transform;
+	gfx::Transform transform;
 
 	float counter = 0.0f;
 	float inc = 0.03f;

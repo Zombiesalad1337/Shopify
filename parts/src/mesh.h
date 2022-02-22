@@ -2,6 +2,7 @@
 #include <glm/glm.hpp>
 #include <GL/glew.h>
 
+namespace gfx{
 //A vertex is a vector of 3 components(x,y,z)
 //value of components range from -1 to +1
 class Vertex{
@@ -40,3 +41,5 @@ private:
     //vertexArrayObject is huge, tells how much of it we want to draw
     unsigned int m_drawCount;
 };
+
+} //namespace gfx

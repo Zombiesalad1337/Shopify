@@ -3,6 +3,7 @@
 #include <GL/glew.h>
 #include "transform.h"
 
+namespace gfx{
 //loads the shader file, builds it and sends the built file 
 //to the gpu
 class Shader{
@@ -35,3 +36,5 @@ private:
     //handles for uniform variables
     GLuint m_uniforms[NUM_UNIFORMS];
 };
+
+} //namespace gfx

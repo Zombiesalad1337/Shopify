@@ -4,7 +4,7 @@
 #include <cassert>
 #include <iostream>
 
-
+namespace gfx{
 Texture::Texture(const std::string& fileName){
     //stbi_load returns 3 pieces of data
     int width, height, numComponents;
@@ -46,3 +46,5 @@ void Texture::Bind(unsigned int unit){
     glActiveTexture(GL_TEXTURE0 + unit);
     glBindTexture(GL_TEXTURE_2D, m_texture);
 }
+
+} //namespace gfx
