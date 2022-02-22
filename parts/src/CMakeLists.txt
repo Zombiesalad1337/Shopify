@@ -10,6 +10,11 @@ add_executable(main main.cpp)
 
 # map depends on polygon and polygon depends on vertex
 # only have to specify map, links to rest of the dependencies itself
-target_link_libraries(map polygon vertex)
+target_link_libraries(map polygon)
+target_link_libraries(polygon vertex)
 
-target_link_libraries(main item inventory userlist utils map)
+target_link_libraries(userlist inventory)
+target_link_libraries(inventory utils)
+target_link_libraries(utils item)
+
+target_link_libraries(main userlist map)
