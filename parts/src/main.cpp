@@ -1,40 +1,39 @@
-digraph "Project" {
-node [
-  fontsize = "12"
-];
-subgraph clusterLegend {
-  label = "Legend";
-  color = black;
-  edge [ style = invis ];
-  legendNode0 [ label = "Executable", shape = egg ];
-  legendNode1 [ label = "Static Library", shape = octagon ];
-  legendNode2 [ label = "Shared Library", shape = doubleoctagon ];
-  legendNode3 [ label = "Module Library", shape = tripleoctagon ];
-  legendNode4 [ label = "Interface Library", shape = pentagon ];
-  legendNode5 [ label = "Object Library", shape = hexagon ];
-  legendNode6 [ label = "Unknown Library", shape = septagon ];
-  legendNode7 [ label = "Custom Target", shape = box ];
-  legendNode0 -> legendNode1 [ style = solid ];
-  legendNode0 -> legendNode2 [ style = solid ];
-  legendNode0 -> legendNode3;
-  legendNode1 -> legendNode4 [ label = "Interface", style = dashed ];
-  legendNode2 -> legendNode5 [ label = "Private", style = dotted ];
-  legendNode3 -> legendNode6 [ style = solid ];
-  legendNode0 -> legendNode7;
-}
-    "node0" [ label = "inventory", shape = doubleoctagon ];
-    "node1" [ label = "item", shape = doubleoctagon ];
-    "node2" [ label = "main", shape = egg ];
-    "node2" -> "node0" [ style = dotted ] // main -> inventory
-    "node2" -> "node1" [ style = dotted ] // main -> item
-    "node3" [ label = "map", shape = doubleoctagon ];
-    "node4" [ label = "polygon", shape = doubleoctagon ];
-    "node3" -> "node4"  // map -> polygon
-    "node5" [ label = "vertex", shape = doubleoctagon ];
-    "node3" -> "node5"  // map -> vertex
-    "node2" -> "node3" [ style = dotted ] // main -> map
-    "node6" [ label = "userlist", shape = doubleoctagon ];
-    "node2" -> "node6" [ style = dotted ] // main -> userlist
-    "node7" [ label = "utils", shape = doubleoctagon ];
-    "node2" -> "node7" [ style = dotted ] // main -> utils
+#include "item.h"
+#include "inventory.h"
+#include "userlist.h"
+#include "map.h"
+#include <vector>
+#include <string>
+#include <iostream>
+
+
+int main(){
+    std::vector<std::string> names = {"frooti", "rice", "eggs"};
+    std::vector<Category> cats = {Category::medium, Category::hard, Category::soft};
+    
+    std::vector<Item> items;
+    for (int i = 0; i != names.size(); ++i){
+        items.emplace_back(Item(names[i], cats[i]));
+    }
+
+    // for (Item i : items){
+    //     cout << i.getName() << " ";
+    //     cout << i.getSoftness() << endl; 
+    // }
+    // sortItems(items);
+    // for (Item i : items){
+    //     cout << i.getName() << " ";
+    //     cout << i.getSoftness() << endl; 
+    // }
+
+    Inventory inventory("inventory.csv");
+    inventory.printInventory();
+    std::cout << std::endl << std::endl;
+
+    UserList userList("userlist.txt", inventory);
+    userList.printListItems();
+
+    Map map("../src/map.csv");
+    map.printMap();
+    return 0;
 }
