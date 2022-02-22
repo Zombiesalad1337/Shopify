@@ -1,8 +1,15 @@
 *.o
 *.out
 build/
+<<<<<<< HEAD
 run.sh
 clean.sh
 bin/
 lib/
+=======
+bin/
+lib/
+run.sh
+clean.sh
+>>>>>>> opengl
 graph/
