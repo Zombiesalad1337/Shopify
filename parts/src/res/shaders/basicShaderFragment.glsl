@@ -5,6 +5,7 @@
 varying  vec2 texCoord0;
 //uniform means both cpu and gpu can access it?
 //sampler? diffuse - a type of texture?
+//sampler is used to sample images
 uniform sampler2D diffuse;
 
 void main(){
