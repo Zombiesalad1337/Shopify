@@ -6,7 +6,8 @@
 class Map{
 private:
     std::vector<Polygon> polygons;
+    float resolution;
 public:
-    Map(std::string filename);
+    Map(const std::string& filename, float resolution = 0.25);
     void printMap();
 };
