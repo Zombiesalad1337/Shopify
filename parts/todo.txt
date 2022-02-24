@@ -14,10 +14,12 @@ class Polygon - vector of Vertex, string name
                 -constructor creates Vertex objects
 class Map  - vector of polygons
             -reads file, then creates Polygon objects
-		DONE TILL NOW
             - float xMax, yMax - shop's size
+		- shop can itself be a polygon, store the shop's vertices
+		as the first Polygon in polygons
             - float resolution - size of each cell (floor divided
                                                     into individual cells)
+		DONE TILL NOW
             - bool Blockage[xMax/resolution][yMax/resolution]
                 - for A*
                 - Blockage[x][y] is true if there's a Polygon at (x,y)

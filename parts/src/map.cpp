@@ -3,7 +3,8 @@
 #include <fstream>
 #include <iostream>
 
-Map::Map(std::string filename){
+Map::Map(const std::string& filename, float resolution){
+    this->resolution = resolution;
     std::ifstream fin;
     fin.open("../src/" + filename);
     std::string line;
