@@ -166,7 +166,8 @@ int main(){
 	gfx::Mesh intermediateLineMesh(intermediateLineVertices, intermediateLines.size(), GL_LINES);
 
 
-
+	gfx::Shader mainLineShader("../src/res/shaders/lineShaderThick");
+	gfx::Shader intermediateLineShader("../src/res/shaders/lineShader");
 
 
 	//
@@ -183,8 +184,15 @@ int main(){
 		texture.Bind(0);
 		shader.Update(transform);
 		// mesh.Draw();	
+		mainLineShader.Bind();
+		mainLineShader.Update(transform);
+		glLineWidth(2);
 		mainLineMesh.Draw();
-		// intermediateLineMesh.Draw();
+		
+		intermediateLineShader.Bind();
+		intermediateLineShader.Update(transform);
+		glLineWidth(1);
+		intermediateLineMesh.Draw();
 		display.Update();
 		// counter += inc;
 	}
