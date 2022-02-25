@@ -38,3 +38,7 @@ void Map::printMap(){
 const std::vector<Polygon>& Map::getPolygons(){
     return polygons;
 }
+
+float Map::getResolution(){
+    return resolution;
+}

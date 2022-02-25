@@ -7,8 +7,16 @@ Vertex::Vertex(const glm::vec3& pos, const glm::vec2& texCoord){
     this->texCoord = texCoord;
 }
 
-Mesh::Mesh(Vertex* vertices, unsigned int numVertices){
+Vertex::Vertex(const glm::vec3& pos){
+    this->pos = pos;
+}
 
+Vertex::Vertex(){
+    this->pos = glm::vec3(0, 0, 0);
+}
+
+Mesh::Mesh(Vertex* vertices, unsigned int numVertices, GLuint type){
+    this->type = type;
     //currently drawing for per vertex basis, other ways to draw exist
     m_drawCount = numVertices;
 
@@ -53,11 +61,24 @@ Mesh::Mesh(Vertex* vertices, unsigned int numVertices){
 
     //for texture
     //enables vertex texture attribute
-    glEnableVertexAttribArray(1);
+    // glEnableVertexAttribArray(1);
     //tells how to read the second(texCoord) attribute
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(vertices[0]), (void *)(3 * sizeof(GL_FLOAT)));
+    // glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(vertices[0]), (void *)(3 * sizeof(GL_FLOAT)));
 
     //releases the bind/operations dont't affect any vertex array 
+
+
+    switch(type){
+        case GL_LINES:
+            break;
+        case GL_TRIANGLES:
+            glEnableVertexAttribArray(1);
+            glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(vertices[0]), (void *)(3 * sizeof(GL_FLOAT)));
+            break;
+        default:
+            break;
+    }
+
     glBindVertexArray(0);
 }
 
@@ -68,7 +89,7 @@ Mesh::~Mesh(){
 
 
 //draws the mesh data that was sent to the gpu
-void Mesh::Draw(GLuint type){
+void Mesh::Draw(){
     glBindVertexArray(m_vertexArrayObject);
 
     //to draw an array of data

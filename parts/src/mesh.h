@@ -8,6 +8,10 @@ namespace gfx{
 class Vertex{
 public:
     Vertex(const glm::vec3& pos, const glm::vec2& texCoord);
+    Vertex(const glm::vec3& pos);
+    Vertex();
+
+    inline const glm::vec3& getPos() const { return pos; }
 
 private:
     glm::vec3 pos;
@@ -22,14 +26,14 @@ class Mesh{
 public:
     //vectices are provided in groups of 3 (they form a triangle)
     //3 | numVertices
-    Mesh(Vertex* vertices, unsigned int numVertices);
-    void Draw(GLuint type);
+    Mesh(Vertex* vertices, unsigned int numVertices, GLuint type);
+    void Draw();
     virtual ~Mesh();
 
 private:
     //handle for the array object that opengl generates
     GLuint m_vertexArrayObject;    
-
+    GLuint type;
     enum {
         POSITION_VB, //==0
         NUM_BUFFERS //==1
