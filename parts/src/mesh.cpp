@@ -68,7 +68,7 @@ Mesh::~Mesh(){
 
 
 //draws the mesh data that was sent to the gpu
-void Mesh::Draw(){
+void Mesh::Draw(GLuint type){
     glBindVertexArray(m_vertexArrayObject);
 
     //to draw an array of data
@@ -76,7 +76,7 @@ void Mesh::Draw(){
     //p2 - starting index
     //p3 - number of indices to render
     //in this case arr[0..m_drawcount - 1] will be rendered
-    glDrawArrays(GL_TRIANGLES, 0, m_drawCount); 
+    glDrawArrays(type, 0, m_drawCount); 
 
     glBindVertexArray(0);
 }

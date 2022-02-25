@@ -9,3 +9,11 @@ Vertex::Vertex(float a,float b){
 void Vertex::printVertex(){
     std::cout << this->x << " " << this->y;
 }
+
+const float& Vertex::getX(){
+    return x;
+}
+
+const float& Vertex::getY(){
+    return y;
+}

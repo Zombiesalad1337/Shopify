@@ -18,3 +18,16 @@ void Polygon::printCoords(){
     }
     std::cout << std::endl;
 }
+
+//map.getPolygons returns a const ref to a vector of polygons
+//In map.getPolygons[0].getVertices(), the getVertices() should not
+//modify the Polygon at polygons[0] as a const ref is passed
+//const correctness tells the compiler that the method getVertices
+//doesn't modify the state of the Polygon object
+const std::vector<Vertex>& Polygon::getVertices() const{
+    return vertices;
+}
+
+const std::string& Polygon::getName(){
+    return name;
+}

@@ -11,6 +11,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 int main(){
     std::vector<std::string> names = {"frooti", "rice", "eggs"};
@@ -62,6 +63,26 @@ int main(){
 	float counter = 0.0f;
 	float inc = 0.03f;
 
+
+	//mesh for the grid
+	//currently for rectangles only, figure out when shop's a polygon
+	float xMin, xMax, yMin, yMax;
+	xMin = yMin = INT32_MAX;
+	xMax = yMax = INT32_MIN;
+	const std::vector<Vertex>& shopVertices = map.getPolygons()[0].getVertices();
+
+	for (Vertex i : shopVertices){
+		xMin = std::min(xMin, i.getX());
+		xMax = std::max(xMax, i.getX());
+		yMin = std::min(yMin, i.getY());
+		yMax = std::max(yMax, i.getY());
+	}
+	std::cout << xMin << " " << xMax << " " << yMin << " " << yMax << std::endl;
+
+
+	
+
+	//
 	while (!display.IsClosed()){
 		display.Clear(0.0f, 0.0f, 0.0f, 1.0f);
 		float cosCounter = cosf(counter);
@@ -74,7 +95,7 @@ int main(){
 		shader.Bind();
 		texture.Bind(0);
 		shader.Update(transform);
-		mesh.Draw();	
+		mesh.Draw(GL_TRIANGLES);	
 		display.Update();
 		counter += inc;
 	}

@@ -23,7 +23,7 @@ public:
     //vectices are provided in groups of 3 (they form a triangle)
     //3 | numVertices
     Mesh(Vertex* vertices, unsigned int numVertices);
-    void Draw();
+    void Draw(GLuint type);
     virtual ~Mesh();
 
 private:

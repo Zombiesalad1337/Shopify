@@ -11,5 +11,6 @@ private:
 public:
     Polygon(std::vector<float>& coords, std::string name);
     void printCoords();
-    // string getName() ;
+    const std::vector<Vertex>& getVertices() const;
+    const std::string& getName();
 };

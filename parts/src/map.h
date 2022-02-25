@@ -10,4 +10,5 @@ private:
 public:
     Map(const std::string& filename, float resolution = 0.25);
     void printMap();
+    const std::vector<Polygon>& getPolygons();
 };

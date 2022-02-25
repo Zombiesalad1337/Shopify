@@ -34,3 +34,7 @@ void Map::printMap(){
     }
     std::cout << std::endl;
 }
+
+const std::vector<Polygon>& Map::getPolygons(){
+    return polygons;
+}
