@@ -14,6 +14,8 @@
 #include <algorithm>
 
 #define BOUNDARY 0.9
+#define WINDOW_WIDTH 1280
+#define WINDOW_HEIGHT 720
 
 int main(){
     std::vector<std::string> names = {"frooti", "rice", "eggs"};
@@ -45,9 +47,9 @@ int main(){
     map.printMap();
 
  
-
+	GLfloat aspectRatio = (GLfloat) WINDOW_HEIGHT / WINDOW_WIDTH;
 	std::string windowName = "tst";
-	gfx::Display display(800, 600, windowName);	
+	gfx::Display display(WINDOW_WIDTH, WINDOW_HEIGHT, windowName);	
 
 	//executable is in bin directory
 	gfx::Shader shader("../src/res/shaders/basicShader");
@@ -180,6 +182,8 @@ int main(){
 		// transform.GetRot().x += (inc * 500) * 1/180;
 		// transform.GetRot().y += (inc * 500) * 1/180;
 		// transform.SetScale(glm::vec3(cosCounter, cosCounter, cosCounter));
+		
+		transform.SetScale(glm::vec3(aspectRatio, 1.0f, 1.0f));
 		shader.Bind();
 		texture.Bind(0);
 		shader.Update(transform);
