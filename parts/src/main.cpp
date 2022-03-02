@@ -11,9 +11,10 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <memory>
 #include <algorithm>
 
-#define BOUNDARY 0.9
+#define BOUNDARY 0.98
 #define WINDOW_WIDTH 1280
 #define WINDOW_HEIGHT 720
 
@@ -177,7 +178,7 @@ int main(){
 	//polygon meshes
 	//need to triangulate polygons
 	std::cout << "polygon meshes" << std::endl << std::endl;	
-	std::vector<gfx::Mesh> polygonMeshes;
+	std::vector<std::unique_ptr<gfx::Mesh>> polygonMeshes;
 
 	for (int i = 1; i < map.getPolygons().size(); ++i){
 		// std::cout << "x" << std::endl;
@@ -208,7 +209,7 @@ int main(){
 		//FUCK U TEMPORARY OBJECT
 		//https://stackoverflow.com/questions/46694577/drawing-vbos-in-opengl-not-working
 		//NOW JUST HAVE TO FIX SHITTY TEXTURES
-		polygonMeshes.emplace_back(triangleVerticesArray, triangleVertices.size(), GL_TRIANGLES);
+		polygonMeshes.emplace_back(new gfx::Mesh(triangleVerticesArray, triangleVertices.size(), GL_TRIANGLES));
 		delete[] triangleVerticesArray;
 	}
 
@@ -225,15 +226,15 @@ int main(){
 		
 		transform.SetScale(glm::vec3(aspectRatio, 1.0f, 1.0f));
 		// mesh.Draw();	
-		// mainLineShader.Bind();
-		// mainLineShader.Update(transform);
-		// glLineWidth(2);
-		// mainLineMesh.Draw();
+		mainLineShader.Bind();
+		mainLineShader.Update(transform);
+		glLineWidth(2);
+		mainLineMesh.Draw();
 		
-		// intermediateLineShader.Bind();
-		// intermediateLineShader.Update(transform);
-		// glLineWidth(1);
-		// intermediateLineMesh.Draw();
+		intermediateLineShader.Bind();
+		intermediateLineShader.Update(transform);
+		glLineWidth(1);
+		intermediateLineMesh.Draw();
 
 		//polygon meshes
 		//currenly using basic shader for polygon
@@ -243,9 +244,9 @@ int main(){
 		shader.Update(transform);
 
 		for (int i = 0; i < polygonMeshes.size(); ++i){
-			polygonMeshes[i].Draw();
+			polygonMeshes[i]->Draw();
 		}
-		// polygonMeshes[0].Draw();
+		// polygonMeshes[1]->Draw();
 		// mesh.Draw();
 		display.Update();
 		// counter += inc;
