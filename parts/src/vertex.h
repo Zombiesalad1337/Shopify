@@ -6,9 +6,11 @@ private :
     float y;
 public: 
     Vertex(float a,float b);
-    void printVertex();
+    void printVertex() const;
     
     //no need for const correctness here??? no errors without it
-    const float& getX();
-    const float& getY();
+    float getX() const;
+    float getY() const;
+
+    Vertex operator-(const Vertex& v2) const;
 };

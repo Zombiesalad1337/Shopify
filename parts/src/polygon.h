@@ -13,4 +13,9 @@ public:
     void printCoords();
     const std::vector<Vertex>& getVertices() const;
     const std::string& getName();
+
+    //polygon triangulation - Ear clipping
+    //vertices should be in clockwise order, non-collinear
+    //for simple polygon
+    std::vector<Vertex> Triangulate() const; 
 };

@@ -13,3 +13,4 @@ run.sh
 clean.sh
 >>>>>>> opengl
 graph/
+.vscode/

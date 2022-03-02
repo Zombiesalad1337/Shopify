@@ -94,8 +94,10 @@ int main(){
 
 	std::vector<gfx::Vertex> mainLines;
 	std::vector<gfx::Vertex> intermediateLines;
+
+	float shopWidth = abs(xMax - xMin);
 	
-	float meter = 2 * BOUNDARY / abs (xMax - xMin);
+	float meter = 2 * BOUNDARY / shopWidth;
 	float unit = meter * map.getResolution();
 
 	std::cout << meter << " " << unit << std::endl;
@@ -105,7 +107,7 @@ int main(){
 	//coordinate axes is drawn twice
 	while (offset <= BOUNDARY){
 		if (abs(accumulate - meter) < 0.000001){
-			std::cout << "Diff" << abs(accumulate - meter) << std::endl;
+			// std::cout << "Diff" << abs(accumulate - meter) << std::endl;
 			//vertical line right of origin
 			mainLines.emplace_back(gfx::Vertex(glm::vec3(offset, -BOUNDARY, 0)));
 			mainLines.emplace_back(gfx::Vertex(glm::vec3(offset, BOUNDARY, 0)));
@@ -156,13 +158,13 @@ int main(){
 	std::cout << mainLines.size() << std::endl;
 	std::cout << intermediateLines.size() << std::endl;
 
-	for (int i = 0; i < mainLines.size(); ++i){
-		std::cout << mainLines[i].getPos().x << " " << mainLines[i].getPos().y << std::endl;
-	}
-	std::cout << std::endl << std::endl;
-	for (int i = 0; i < intermediateLines.size(); ++i){
-		std::cout << intermediateLines[i].getPos().x << " " << intermediateLines[i].getPos().y << std::endl;
-	}
+	// for (int i = 0; i < mainLines.size(); ++i){
+	// 	std::cout << mainLines[i].getPos().x << " " << mainLines[i].getPos().y << std::endl;
+	// }
+	// std::cout << std::endl << std::endl;
+	// for (int i = 0; i < intermediateLines.size(); ++i){
+	// 	std::cout << intermediateLines[i].getPos().x << " " << intermediateLines[i].getPos().y << std::endl;
+	// }
 
 	gfx::Mesh mainLineMesh(mainLineVertices, mainLines.size(), GL_LINES);
 	gfx::Mesh intermediateLineMesh(intermediateLineVertices, intermediateLines.size(), GL_LINES);
@@ -171,6 +173,44 @@ int main(){
 	gfx::Shader mainLineShader("../src/res/shaders/lineShaderThick");
 	gfx::Shader intermediateLineShader("../src/res/shaders/lineShader");
 
+
+	//polygon meshes
+	//need to triangulate polygons
+	std::cout << "polygon meshes" << std::endl << std::endl;	
+	std::vector<gfx::Mesh> polygonMeshes;
+
+	for (int i = 1; i < map.getPolygons().size(); ++i){
+		// std::cout << "x" << std::endl;
+		std::vector<Vertex> triangleVertices = map.getPolygons()[i].Triangulate();
+	
+		// std::cout << "m" << std::endl;
+		gfx::Vertex* triangleVerticesArray = new gfx::Vertex[triangleVertices.size()];
+
+		// std::cout << "z" << std::endl;
+		for (int j = 0; j < triangleVertices.size(); ++j){
+			// std::cout << "y" << std::endl;	
+			float x = triangleVertices[j].getX() * meter;
+			float y = triangleVertices[j].getY() * meter;
+
+			triangleVerticesArray[j] = gfx::Vertex(glm::vec3(x, y, 0), glm::vec2(x, y));
+		}
+		// std::cout << triangleVertices.size() << std::endl;
+
+		// for (int j = 0; j < triangleVertices.size(); ++j){
+		// 	std::cout << triangleVertices[j].getX() << " " << triangleVertices[j].getY() << std::endl;
+		// }
+
+		// for (int j = 0; j < triangleVertices.size(); ++j){
+		// 	std::cout << triangleVerticesArray[j].getPos().x << " " << triangleVerticesArray[j].getPos().y << std::endl;
+		// }
+
+		//JUST TOOK 2 HOURS OF DEBUGGING
+		//FUCK U TEMPORARY OBJECT
+		//https://stackoverflow.com/questions/46694577/drawing-vbos-in-opengl-not-working
+		//NOW JUST HAVE TO FIX SHITTY TEXTURES
+		polygonMeshes.emplace_back(triangleVerticesArray, triangleVertices.size(), GL_TRIANGLES);
+		delete[] triangleVerticesArray;
+	}
 
 	//
 	while (!display.IsClosed()){
@@ -184,21 +224,35 @@ int main(){
 		// transform.SetScale(glm::vec3(cosCounter, cosCounter, cosCounter));
 		
 		transform.SetScale(glm::vec3(aspectRatio, 1.0f, 1.0f));
+		// mesh.Draw();	
+		// mainLineShader.Bind();
+		// mainLineShader.Update(transform);
+		// glLineWidth(2);
+		// mainLineMesh.Draw();
+		
+		// intermediateLineShader.Bind();
+		// intermediateLineShader.Update(transform);
+		// glLineWidth(1);
+		// intermediateLineMesh.Draw();
+
+		//polygon meshes
+		//currenly using basic shader for polygon
+		//and the wood texture
 		shader.Bind();
 		texture.Bind(0);
 		shader.Update(transform);
-		// mesh.Draw();	
-		mainLineShader.Bind();
-		mainLineShader.Update(transform);
-		glLineWidth(2);
-		mainLineMesh.Draw();
-		
-		intermediateLineShader.Bind();
-		intermediateLineShader.Update(transform);
-		glLineWidth(1);
-		intermediateLineMesh.Draw();
+
+		for (int i = 0; i < polygonMeshes.size(); ++i){
+			polygonMeshes[i].Draw();
+		}
+		// polygonMeshes[0].Draw();
+		// mesh.Draw();
 		display.Update();
 		// counter += inc;
 	}
+
+	delete[] mainLineVertices;
+	delete[] intermediateLineVertices;
 	return 0;
+
 }

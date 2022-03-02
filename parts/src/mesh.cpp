@@ -1,5 +1,5 @@
 #include "mesh.h"
-
+#include <iostream>
 namespace gfx{
 
 Vertex::Vertex(const glm::vec3& pos, const glm::vec2& texCoord){
