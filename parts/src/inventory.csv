@@ -1,12 +1,89 @@
-Name,Category
-Rice Bag,hard
-Tomato,soft
-Orange Juice,medium
-Apple,medium
-Egg,soft
-Wheat Bag,hard
-Biscuit,medium
-Lays,soft
-Cheese,medium
-Meat,medium
-Canned Fish,hard
+Name,Category,x,y
+# Produce
+Wheat Grain,hard,-18,-3
+Rice Bag,hard,-18,-2
+Pulses,hard,-18,-1
+Tomato,soft,-18,0
+Potato,medium,-18,1
+Orange,soft,-18,2
+Onion,hard,-18,3
+Carrot,hard,-18,4
+Pea,hard,-18,5
+Spinach,soft,-18,6
+
+# Bakery
+Bread,soft,-18,8
+Cake,soft,-18,9
+Pastries,soft,-18,10
+Sandwich,soft,-17,10
+Pizza Base,soft,-16,10
+Buns,soft,-15,10
+
+#Dairy
+Milk,soft,-13,10
+Cheese slice,soft,-12,10
+Butter,soft,-11,10
+Paneer,soft,-10,10
+Curd,soft,-9,10
+Lassi,soft,-8,10
+Buttermilk,soft,-7,10
+Khoya,soft,-6,10
+Desi Ghee,soft,-5,10
+
+#Meat and Poultry
+Eggs,soft,-2,10
+Chicken Legs,medium,0,10
+Chicken Breast,medium,2,10
+Chicken,medium,4,10
+Mutton,medium,6,10
+Lamb,medium,8,10
+Organic Eggs,soft,10,10
+Venison,medium,12,10
+
+#Sea food
+Bombay duck,soft,14,10
+Rohu,medium,15,10
+Catfish,medium,16,10
+Octopus,medium,17,10
+Jellyfish,soft,18,10
+Prawns,soft,18,9
+Crab,medium,18,8
+Shrimps,soft,18,7
+
+#Pharmacy
+Atorvastatin
+Clopiogrel
+Esomeprazole
+salmeterol
+Olanzapine
+risperidone
+quetiapine
+montelukast 
+darbepoetin alfa
+Comirnaty 
+adalimumab
+Spikevax
+keytruda
+eliquis
+revlimid
+ibrutinib
+aflibercept
+ustekinumab
+biktarvy
+rivaroxaban
+nivolumab
+dulaglutide
+dupilumab
+daratumumab
+paracetamol
+citrizine
+remdesivir
+osimertinib
+secukinumab
+omperazole
+vicks
+benedryl
+dygene
+Eno
+
+
