@@ -1,6 +1,7 @@
 Cleaning - 
 Harpic Toilet Cleaner
 Surf excel Detergent
+Liquid Detergent
 Nirma Detergent
 Woman pads
 Tooth paste
@@ -13,6 +14,7 @@ Rubbing Alcohol
 Surface Sanitizer
 Hand sanitizer
 Hit
+Hit cockroach
 Baby diapers
 Comfort clothes
 Glass cleaner
@@ -160,4 +162,14 @@ Green Tea
 Ice tea
 
 
+GRAB all the items from SINGLE_POINT in one go
+//TODO: Represent Single_Point in inventory.csv
 Pharmacy, Grab and go, Deli and coffee bar, flowers, atm - whole front entrance is the goal
+Also add items for these
+Pharmacy - single point, take all items as a unit in user list
+Assign a token for pharmacy time
+EXCLUDE PHARMACY from shortest path
+Use a QUEUE, customer walks on shortest path
+unless he's on top of queue.
+If he's on top, drop route and go to pharmacy,
+recalculate shortest path
