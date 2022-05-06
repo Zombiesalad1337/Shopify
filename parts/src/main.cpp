@@ -19,13 +19,13 @@
 #define WINDOW_HEIGHT 720
 
 int main(){
-    std::vector<std::string> names = {"frooti", "rice", "eggs"};
+    /*std::vector<std::string> names = {"frooti", "rice", "eggs"};
     std::vector<Category> cats = {Category::medium, Category::hard, Category::soft};
     
     std::vector<Item> items;
     for (int i = 0; i != names.size(); ++i){
         items.emplace_back(Item(names[i], cats[i]));
-    }
+    }*/
 
     // for (Item i : items){
     //     cout << i.getName() << " ";

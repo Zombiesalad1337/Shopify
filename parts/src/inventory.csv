@@ -53,117 +53,117 @@ Shrimps,soft,18,7
 
 
 # Shelf2 - cleaning
-Harpic Toilet Cleaner,Hard,-7.5,-1.0
-Surf Excel Detergent,Hard,-7.5,0.0
-Nirma Detergent,Hard,-7.5,1.0
-Woman pads,Medium,-7.5,2.0
+Harpic Toilet Cleaner,hard,-7.5,-1.0
+Surf Excel Detergent,hard,-7.5,0.0
+Nirma Detergent,hard,-7.5,1.0
+Woman pads,medium,-7.5,2.0
 Tooth paste,hard,-7.5,3.0
 Hand wash,hard,-7.5,4.0
-Dettol,Hard,-7.5,5.0
-Liquid Detergent,Hard,-7.5,6.0
-Ezee,Hard,-6,-1.0
-Lizol,Hard,-6,0.0
-Phenyl,Hard,-6,1.0
-Rubbing Alcohol,Hard,-6,2.0
-Surface Sanitizer,Hard,-6,3.0
-Hand Sanitizer,Hard,-6,4.0
-Hit,Hard,-6,5.0
-Hit cockroach,Hard,-6.5,6.0
-Baby diapers,Medium,-7.25,6.5
-Comfort for clothes,Hard,-7.25,6.5
-Glass Cleaner,Hard,-6.5,-1.5
-All out,Hard,-6.5,-1.5
+Dettol,hard,-7.5,5.0
+Liquid Detergent,hard,-7.5,6.0
+Ezee,hard,-6,-1.0
+Lizol,hard,-6,0.0
+Phenyl,hard,-6,1.0
+Rubbing Alcohol,hard,-6,2.0
+Surface Sanitizer,hard,-6,3.0
+Hand Sanitizer,hard,-6,4.0
+Hit,hard,-6,5.0
+Hit cockroach,hard,-6.5,6.0
+Baby diapers,medium,-7.25,6.5
+Comfort for clothes,hard,-7.25,6.5
+Glass Cleaner,hard,-6.5,-1.5
+All out,hard,-6.5,-1.5
 
 # Shelf 1 - Beauty
-Face wash,Medium,-12.75,-1.0
-Hair oil,Hard,-12.75,0.0
-Soap,Hard,-12.75,1.0
-Shampoo,Hard,-12.75,2.0
-Conditioner,Hard,-12.75,3.0
-Face mask,Medium,-12.75,4.0
-Exfoliating Scrub,Medium,-12.75,5.0
-Body brush,Medium,-12.75,6.0
-Comb,Medium,-11.25,-1.0
-Deo,Hard,-11.25,0.0
-Perfume,Medium,-11.25,1.0
-Ice Pack,Medium,-11.25,2.0
-Body lotion,Medium,-11.25,3.0
-Massage Oil,Medium,-11.25,4.0
-Hair band,Medium,-11.25,5.0
-Hair clip,Medium,-11.25,6.0
-Vax strips,Medium,-12.25,6.5
-Sunscreen,Medium,-11.75,6.5
-Razor,Medium,-12.25,-1.5
-Shaving Cream,Medium,-11.75,-1.5
+Face wash,medium,-12.75,-1.0
+Hair oil,hard,-12.75,0.0
+Soap,hard,-12.75,1.0
+Shampoo,hard,-12.75,2.0
+Conditioner,hard,-12.75,3.0
+Face mask,medium,-12.75,4.0
+Exfoliating Scrub,medium,-12.75,5.0
+Body brush,medium,-12.75,6.0
+Comb,medium,-11.25,-1.0
+Deo,hard,-11.25,0.0
+Perfume,medium,-11.25,1.0
+Ice Pack,medium,-11.25,2.0
+Body lotion,medium,-11.25,3.0
+Massage Oil,medium,-11.25,4.0
+Hair band,medium,-11.25,5.0
+Hair clip,medium,-11.25,6.0
+Vax strips,medium,-12.25,6.5
+Sunscreen,medium,-11.75,6.5
+Razor,medium,-12.25,-1.5
+Shaving Cream,medium,-11.75,-1.5
 
 
 # Shelf 3 - Food 
-Oats Biscuit,Medium,-2.60,-1.0
-Glucose Biscuit,Medium,-2.60,0.0
-Dry fruit Biscuit,Medium,-2.60,1.0
-Choco chip cookies,Medium,-2.60,2.0
-Waffle,Soft,-2.60,3.0
-Orange juice,Medium,-2.60,4.0
-Mix fruit juice,Medium,-2.60,5.0
-Pomegrenate juice,Medium,-2.60,6.0
-Limca,Medium,-1.15,-1.0
-Coke,Medium,-1.15,0.0
-Sprite,Medium,-1.15,1.0
-Sting,Medium,-1.15,2.0
-Red bull,Medium,-1.15,3.0
-Dog food,Medium,-1.15,4.0
-Packed oats,Medium,-1.15,5.0
-Loose oats,Medium,-1.15,6.0
-Macaroni,Medium,-2.10,6.5
-Pasta,Medium,-1.60,6.5
-Noodles,Medium,-2.10,-1.5
-Dalda,Medium,-1.60,-1.5
+Oats Biscuit,medium,-2.60,-1.0
+Glucose Biscuit,medium,-2.60,0.0
+Dry fruit Biscuit,medium,-2.60,1.0
+Choco chip cookies,medium,-2.60,2.0
+Waffle,soft,-2.60,3.0
+Orange juice,medium,-2.60,4.0
+Mix fruit juice,medium,-2.60,5.0
+Pomegrenate juice,medium,-2.60,6.0
+Limca,medium,-1.15,-1.0
+Coke,medium,-1.15,0.0
+Sprite,medium,-1.15,1.0
+Sting,medium,-1.15,2.0
+Red bull,medium,-1.15,3.0
+Dog food,medium,-1.15,4.0
+Packed oats,medium,-1.15,5.0
+Loose oats,medium,-1.15,6.0
+Macaroni,medium,-2.10,6.5
+Pasta,medium,-1.60,6.5
+Noodles,medium,-2.10,-1.5
+Dalda,medium,-1.60,-1.5
 
 
 # Shelf 4 - Food 
-Fortune Oil,Medium,2.30,-1.0
-Mustard Oil,Medium,2.30,0.0
-Coconut Oil,Medium,2.30,1.0
-Olive Oil,Medium,2.30,2.0
-Nachos,Soft,2.30,3.0
-Doritos,Soft,2.30,4.0
-Frito Lay,Soft,2.30,5.0
-Kurkure,Soft,2.30,6.0
-Taka-tak,Soft,3.65,-1.0
-Nutcracker,Soft,3.65,0.0
-Salted Peanuts,Soft,3.65,1.0
-Protein Powder,Hard,3.65,2.0
-Protein Bar,Medium,3.65,3.0
-Kit-kat,Soft,3.65,4.0
-Dairy Milk,Soft,3.65,5.0
-Yippee Noodles,Medium,3.65,6.0
-Maggi,Medium,2.75,6.5
-Rock Salt,Medium,3.25,6.5
-Table Salt,Medium,2,75,-1.5
-Pepper,Medium,3.25,-1.5
+Fortune Oil,medium,2.30,-1.0
+Mustard Oil,medium,2.30,0.0
+Coconut Oil,medium,2.30,1.0
+Olive Oil,medium,2.30,2.0
+Nachos,soft,2.30,3.0
+Doritos,soft,2.30,4.0
+Frito Lay,soft,2.30,5.0
+Kurkure,soft,2.30,6.0
+Taka-tak,soft,3.65,-1.0
+Nutcracker,soft,3.65,0.0
+Salted Peanuts,soft,3.65,1.0
+Protein Powder,hard,3.65,2.0
+Protein Bar,medium,3.65,3.0
+Kit-kat,soft,3.65,4.0
+Dairy Milk,soft,3.65,5.0
+Yippee Noodles,medium,3.65,6.0
+Maggi,medium,2.75,6.5
+Rock Salt,medium,3.25,6.5
+Table Salt,medium,2,75,-1.5
+Pepper,medium,3.25,-1.5
 
 
 # Shelf 5 - Food 
-Oregano Seasoning,Medium,6.95,-1.0
-Sugar,Medium,6.95,0.0
-Jaggery,Hard,6.95,1.0
-Turmerric,Medium,6.95,2.0
-Chilli Powder,Medium,6.95,3.0
-Black Pepper,Medium,6.95,4.0
-Dhaniya Powder,Medium,6.95,5.0
-Almonds,Hard,6.95,6.0
-Cashews,Hard,8.25,-1.0
-Chawanprash,Hard,8.25,0.0
-Rasna,Medium,8.25,1.0
-Glucon D,Medium,8.25,2.0
-Bikaneri Bhujia,Medium,8.25,3.0
-Aaloo Bhujia,Medium,8.25,4.0
-Khatta Meetha,Medium,8.25,5.0
-Bhel Puri,Medium,8.25,6.0
-Uncle Chips,Soft,7.35,6.5
-Tea Leaves,Medium,7.85,6.5
-Green Tea,Medium,7.35,-1.5
-Ice Tea,Medium,7.85,-1.5
+Oregano Seasoning,medium,6.95,-1.0
+Sugar,medium,6.95,0.0
+Jaggery,hard,6.95,1.0
+Turmerric,medium,6.95,2.0
+Chilli Powder,medium,6.95,3.0
+Black Pepper,medium,6.95,4.0
+Dhaniya Powder,medium,6.95,5.0
+Almonds,hard,6.95,6.0
+Cashews,hard,8.25,-1.0
+Chawanprash,hard,8.25,0.0
+Rasna,medium,8.25,1.0
+Glucon D,medium,8.25,2.0
+Bikaneri Bhujia,medium,8.25,3.0
+Aaloo Bhujia,medium,8.25,4.0
+Khatta Meetha,medium,8.25,5.0
+Bhel Puri,medium,8.25,6.0
+Uncle Chips,soft,7.35,6.5
+Tea Leaves,medium,7.85,6.5
+Green Tea,medium,7.35,-1.5
+Ice Tea,medium,7.85,-1.5
 
 
 EOF

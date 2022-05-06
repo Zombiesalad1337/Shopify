@@ -21,8 +21,11 @@ Inventory::Inventory(std::string filename){
         getline(fin, line);
         //first line contains headers, read from 2nd line
         if (line.size()){
+            if (line[0] == '#') continue;
+            if (!line.compare("EOF")) break;
+            std::cout << line << std::endl;
             std::vector<std::string> tokens = split(line, ",", "");
-            items.emplace_back(Item(tokens[0], catMap[tokens[1]]));
+            items.emplace_back(Item(tokens[0], catMap[tokens[1]], stof(tokens[2]), stof(tokens[3])));
             mapItems[tokens[0]] = count;
             count++;
         }
