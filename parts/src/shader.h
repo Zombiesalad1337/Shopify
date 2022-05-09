@@ -19,11 +19,14 @@ public:
 
     virtual ~Shader();
 
+    void setColor(const glm::vec4& color);
+
 private:
     static const unsigned int NUM_SHADERS = 2;
 
     enum {
         TRANSFORM_U,
+        COLOR_U,
         
         NUM_UNIFORMS
     };
@@ -36,5 +39,6 @@ private:
     //handles for uniform variables
     GLuint m_uniforms[NUM_UNIFORMS];
 };
+
 
 } //namespace gfx

@@ -131,4 +131,10 @@ static void CheckShaderError(GLuint shader, GLuint flag, bool isProgram, const s
     }
 }
 
+void Shader::setColor(const glm::vec4& color){
+    m_uniforms[COLOR_U] = glGetUniformLocation(m_program, "u_color");
+    glUniform4f(m_uniforms[COLOR_U], color[0], color[1], color[2], color[3]);
+
+}
+
 } //namespace gfx

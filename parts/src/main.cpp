@@ -173,6 +173,7 @@ int main(){
 
 	gfx::Shader mainLineShader("../src/res/shaders/lineShaderThick");
 	gfx::Shader intermediateLineShader("../src/res/shaders/lineShader");
+    gfx::Shader circleShader("../src/res/shaders/circleShader");
 
 
 	//polygon meshes
@@ -215,6 +216,7 @@ int main(){
 
     std::vector<std::unique_ptr<gfx::Mesh>> circleMeshes;
     drawCircle(0, 0, 0, 0.5, 50, circleMeshes);
+    glm::vec4 circleColor = {1.0f, 1.0f, 0.0f, 1.0f}; 
 	//
 	while (!display.IsClosed()){
 		display.Clear(0.0f, 0.0f, 0.0f, 1.0f);
@@ -235,6 +237,11 @@ int main(){
 
 		mainLineShader.Bind();
 		mainLineShader.Update(transform);
+
+        circleShader.Bind();
+        circleShader.setColor(circleColor);
+        circleShader.Update(transform);
+        //need to set uniform after binding the shader (so it knows what shader to set to)
         for (int i = 0; i < circleMeshes.size(); ++i){
             circleMeshes[i]->Draw();
         }
