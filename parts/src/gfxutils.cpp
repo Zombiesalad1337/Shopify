@@ -3,7 +3,7 @@
 namespace gfx{
 
 
-void drawCircle(GLfloat x, GLfloat y, GLfloat z, GLfloat radius, GLint numSides, std::vector<std::unique_ptr<Mesh>>& circleMesh){
+void createCircleMesh(GLfloat x, GLfloat y, GLfloat z, GLfloat radius, GLint numSides, std::vector<std::unique_ptr<Mesh>>& circleMesh){
 
     int numVertices = numSides + 2;
 
@@ -11,7 +11,7 @@ void drawCircle(GLfloat x, GLfloat y, GLfloat z, GLfloat radius, GLint numSides,
 
     Vertex* triangleVerticesArray = new Vertex[numVertices]; 
     
-    triangleVerticesArray[0] = gfx::Vertex(glm::vec3(0 ,0, 0));
+    triangleVerticesArray[0] = gfx::Vertex(glm::vec3(x ,y, z));
 
     for (int i = 1; i < numVertices; ++i){
         float xCoord = x + (radius * cos(i * tau / numSides));

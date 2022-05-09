@@ -215,9 +215,22 @@ int main(){
 	}
 
     std::vector<std::unique_ptr<gfx::Mesh>> circleMeshes;
-    drawCircle(0, 0, 0, 0.5, 50, circleMeshes);
-    glm::vec4 circleColor = {1.0f, 1.0f, 0.0f, 1.0f}; 
-	//
+    createCircleMesh(0, 0, 0, 0.1, 50, circleMeshes);
+
+    //circles for TESTING
+    
+    createCircleMesh(-0.5, -0.5, 0, 0.1, 50, circleMeshes);
+    createCircleMesh(-0.5, 0.5, 0, 0.1, 50, circleMeshes);
+    createCircleMesh(0.5, -0.5, 0, 0.1, 50, circleMeshes);
+    createCircleMesh(0.5, 0.5, 0, 0.1, 50, circleMeshes);
+
+    std::vector<glm::vec4> circleColors;
+    circleColors.emplace_back(glm::vec4{1.0,1.0,1.0,1.0f});
+    circleColors.emplace_back(glm::vec4{0.0,1.0,1.0,1.0f});
+    circleColors.emplace_back(glm::vec4{1.0,0.0,1.0,1.0f});
+    circleColors.emplace_back(glm::vec4{1.0,1.0,0.0,1.0f});
+    circleColors.emplace_back(glm::vec4{1.0,0.0,1.0,1.0f});
+
 	while (!display.IsClosed()){
 		display.Clear(0.0f, 0.0f, 0.0f, 1.0f);
 		// float cosCounter = cosf(counter);
@@ -239,10 +252,11 @@ int main(){
 		mainLineShader.Update(transform);
 
         circleShader.Bind();
-        circleShader.setColor(circleColor);
         circleShader.Update(transform);
         //need to set uniform after binding the shader (so it knows what shader to set to)
         for (int i = 0; i < circleMeshes.size(); ++i){
+            //circleShader.setColor(circleColors[i]);
+            circleShader.setColor(circleColors[i]);
             circleMeshes[i]->Draw();
         }
 		
