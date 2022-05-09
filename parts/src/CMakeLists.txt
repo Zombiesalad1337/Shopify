@@ -17,7 +17,7 @@ add_library(shader shader.cpp)
 add_library(mesh mesh.cpp)
 add_library(texture texture.cpp)
 add_library(transform transform.cpp)
-
+add_library(gfxutils gfxutils.cpp)
 # map depends on polygon and polygon depends on vertex
 # only have to specify map, links to rest of the dependencies itself
 target_link_libraries(map polygon)
@@ -33,6 +33,6 @@ target_link_libraries(shader transform)
 add_executable(main main.cpp)
 
 
-target_link_libraries(main display shader mesh texture map userlist 
+target_link_libraries(main display shader mesh texture map userlist gfxutils 
                     ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES} 
                     ${SDL2_LIBRARIES})

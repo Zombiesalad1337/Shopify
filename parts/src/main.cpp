@@ -7,7 +7,7 @@
 #include "mesh.h"
 #include "texture.h"
 #include "transform.h"
-
+#include "gfxutils.h"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -213,6 +213,8 @@ int main(){
 		delete[] triangleVerticesArray;
 	}
 
+    std::vector<std::unique_ptr<gfx::Mesh>> circleMeshes;
+    drawCircle(0, 0, 0, 0.5, 50, circleMeshes);
 	//
 	while (!display.IsClosed()){
 		display.Clear(0.0f, 0.0f, 0.0f, 1.0f);
@@ -229,7 +231,13 @@ int main(){
 		mainLineShader.Bind();
 		mainLineShader.Update(transform);
 		glLineWidth(2);
-		mainLineMesh.Draw();
+		//mainLineMesh.Draw();
+
+		mainLineShader.Bind();
+		mainLineShader.Update(transform);
+        for (int i = 0; i < circleMeshes.size(); ++i){
+            circleMeshes[i]->Draw();
+        }
 		
 		// intermediateLineShader.Bind();
 		// intermediateLineShader.Update(transform);
@@ -243,9 +251,9 @@ int main(){
 		texture.Bind(0);
 		shader.Update(transform);
 
-		for (int i = 0; i < polygonMeshes.size(); ++i){
-			polygonMeshes[i]->Draw();
-		}
+		//for (int i = 0; i < polygonMeshes.size(); ++i){
+			//polygonMeshes[i]->Draw();
+		//}
 		// polygonMeshes[1]->Draw();
 		// mesh.Draw();
 		display.Update();
