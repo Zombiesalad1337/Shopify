@@ -68,11 +68,11 @@ Rubbing Alcohol,hard,-6,2.0
 Surface Sanitizer,hard,-6,3.0
 Hand Sanitizer,hard,-6,4.0
 Hit,hard,-6,5.0
-Hit cockroach,hard,-6.5,6.0
+Hit cockroach,hard,-6,6.0
 Baby diapers,medium,-7.25,6.5
-Comfort for clothes,hard,-7.25,6.5
+Comfort for clothes,hard,-7.25,-1.5
 Glass Cleaner,hard,-6.5,-1.5
-All out,hard,-6.5,-1.5
+All out,hard,-6.5,6.5
 
 # Shelf 1 - Beauty
 Face wash,medium,-12.75,-1.0
@@ -139,7 +139,7 @@ Dairy Milk,soft,3.65,5.0
 Yippee Noodles,medium,3.65,6.0
 Maggi,medium,2.75,6.5
 Rock Salt,medium,3.25,6.5
-Table Salt,medium,2,75,-1.5
+Table Salt,medium,2.75,-1.5
 Pepper,medium,3.25,-1.5
 
 
