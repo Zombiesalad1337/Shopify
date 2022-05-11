@@ -214,22 +214,38 @@ int main(){
 		delete[] triangleVerticesArray;
 	}
 
-    std::vector<std::unique_ptr<gfx::Mesh>> circleMeshes;
-    createCircleMesh(0, 0, 0, 0.1, 50, circleMeshes);
 
     //circles for TESTING
     
-    createCircleMesh(-0.5, -0.5, 0, 0.1, 50, circleMeshes);
-    createCircleMesh(-0.5, 0.5, 0, 0.1, 50, circleMeshes);
-    createCircleMesh(0.5, -0.5, 0, 0.1, 50, circleMeshes);
-    createCircleMesh(0.5, 0.5, 0, 0.1, 50, circleMeshes);
+    std::vector<std::unique_ptr<gfx::Mesh>> circleMeshes;
+    //createCircleMesh(0, 0, 0, 0.1, 50, circleMeshes);
+    //createCircleMesh(-0.5, -0.5, 0, 0.1, 50, circleMeshes);
+    //createCircleMesh(-0.5, 0.5, 0, 0.1, 50, circleMeshes);
+    //createCircleMesh(0.5, -0.5, 0, 0.1, 50, circleMeshes);
+    //createCircleMesh(0.5, 0.5, 0, 0.1, 50, circleMeshes);
 
+
+    //circle meshes for items
     std::vector<glm::vec4> circleColors;
-    circleColors.emplace_back(glm::vec4{1.0,1.0,1.0,1.0f});
-    circleColors.emplace_back(glm::vec4{0.0,1.0,1.0,1.0f});
-    circleColors.emplace_back(glm::vec4{1.0,0.0,1.0,1.0f});
-    circleColors.emplace_back(glm::vec4{1.0,1.0,0.0,1.0f});
-    circleColors.emplace_back(glm::vec4{1.0,0.0,1.0,1.0f});
+    
+    const std::vector<Item>& inventoryItems = inventory.getItems();
+    for (auto i : inventoryItems){
+        Vertex vertex = i.getVertex();
+        //TODO: seed random number
+        float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        float g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        float b = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        circleColors.emplace_back(glm::vec4{r,g,b,1.0f});
+        createCircleMesh(vertex.getX() * meter, vertex.getY() * meter, 0, unit * 2, 10, circleMeshes);
+    }
+
+
+
+    //circleColors.emplace_back(glm::vec4{1.0,1.0,1.0,1.0f});
+    //circleColors.emplace_back(glm::vec4{0.0,1.0,1.0,1.0f});
+    //circleColors.emplace_back(glm::vec4{1.0,0.0,1.0,1.0f});
+    //circleColors.emplace_back(glm::vec4{1.0,1.0,0.0,1.0f});
+    //circleColors.emplace_back(glm::vec4{1.0,0.0,1.0,1.0f});
 
 	while (!display.IsClosed()){
 		display.Clear(0.0f, 0.0f, 0.0f, 1.0f);
@@ -242,28 +258,20 @@ int main(){
 		// transform.SetScale(glm::vec3(cosCounter, cosCounter, cosCounter));
 		
 		transform.SetScale(glm::vec3(aspectRatio, 1.0f, 1.0f));
-		// mesh.Draw();	
+         //mesh.Draw();	
 		mainLineShader.Bind();
 		mainLineShader.Update(transform);
 		glLineWidth(2);
-		//mainLineMesh.Draw();
+        mainLineMesh.Draw();
 
 		mainLineShader.Bind();
 		mainLineShader.Update(transform);
 
-        circleShader.Bind();
-        circleShader.Update(transform);
-        //need to set uniform after binding the shader (so it knows what shader to set to)
-        for (int i = 0; i < circleMeshes.size(); ++i){
-            //circleShader.setColor(circleColors[i]);
-            circleShader.setColor(circleColors[i]);
-            circleMeshes[i]->Draw();
-        }
 		
-		// intermediateLineShader.Bind();
-		// intermediateLineShader.Update(transform);
-		// glLineWidth(1);
-		// intermediateLineMesh.Draw();
+        //intermediateLineShader.Bind();
+        //intermediateLineShader.Update(transform);
+        //glLineWidth(1);
+        //intermediateLineMesh.Draw();
 
 		//polygon meshes
 		//currenly using basic shader for polygon
@@ -272,11 +280,19 @@ int main(){
 		texture.Bind(0);
 		shader.Update(transform);
 
-		//for (int i = 0; i < polygonMeshes.size(); ++i){
-			//polygonMeshes[i]->Draw();
-		//}
-		// polygonMeshes[1]->Draw();
-		// mesh.Draw();
+        for (int i = 0; i < polygonMeshes.size(); ++i){
+            polygonMeshes[i]->Draw();
+        }
+
+        circleShader.Bind();
+        circleShader.Update(transform);
+        //need to set uniform after binding the shader (so it knows what shader to set to)
+        for (int i = 0; i < circleMeshes.size(); ++i){
+            circleShader.setColor(circleColors[i]);
+            circleMeshes[i]->Draw();
+        }
+         //polygonMeshes[1]->Draw();
+         //mesh.Draw();
 		display.Update();
 		// counter += inc;
 	}

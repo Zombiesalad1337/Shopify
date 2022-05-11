@@ -17,4 +17,5 @@ private:
 public:
     Inventory(std::string filename);
     void printInventory();
+    const std::vector<Item>& getItems() const;
 };

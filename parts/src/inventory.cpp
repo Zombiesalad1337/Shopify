@@ -39,3 +39,7 @@ void Inventory::printInventory(){
         std::cout << i.getName() << "  " << i.getSoftness() << std::endl;
     }
 }
+
+const std::vector<Item>& Inventory::getItems() const{
+    return this->items;
+}
