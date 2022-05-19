@@ -267,11 +267,11 @@ int main(){
 		mainLineShader.Bind();
 		mainLineShader.Update(transform);
 
-		
-        //intermediateLineShader.Bind();
-        //intermediateLineShader.Update(transform);
-        //glLineWidth(1);
-        //intermediateLineMesh.Draw();
+        
+        intermediateLineShader.Bind();
+        intermediateLineShader.Update(transform);
+        glLineWidth(1);
+        intermediateLineMesh.Draw();
 
 		//polygon meshes
 		//currenly using basic shader for polygon
